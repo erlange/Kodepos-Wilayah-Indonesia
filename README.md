@@ -3,7 +3,7 @@ Data wilayah administratif Indonesia berdasarkan Permendagri No.137 Tahun 2017 b
 
 | **NO** | **KODE** | **PROPINSI**                  | **KOTA** | **KABUPATEN** | **KECAMATAN** | **DESA/KELURAHAN** |
 |---:|-----:|---------------------------|-----:|----------:|----------:|----------:|
-|    |      |        **TOTAL NASIONAL** |   **98** |       **416** |      **7230** |     **83436** |
+|    |      |        **TOTAL NASIONAL** |   **98** |       **416** |      **7201** |     **83436** |
 | 1  | 11   | Aceh (NAD)                |    5 |        18 |       289 |      6497 |
 | 2  | 12   | Sumatera Utara            |    8 |        25 |       444 |      6110 |
 | 3  | 13   | Sumatera Barat            |    7 |        12 |       179 |      1158 |
