@@ -1,4 +1,11 @@
-# Kodepos Wilayah Administratif Indonesia
+﻿# Kodepos Wilayah Administratif Indonesia
+
+## Daftar Isi
+* [**Penjelasan**](#Penjelasan)
+* [**Unduhan**](#Unduhan)
+* [**Referensi**](#Referensi)
+
+## Penjelasan
 Data wilayah administratif Indonesia berdasarkan Permendagri No.137 Tahun 2017 beserta kode pos di tingkat IV (desa/kecamatan).
 
 | **NO** | **KODE** | **PROPINSI**                  | **KOTA** | **KABUPATEN** | **KECAMATAN** | **DESA/KELURAHAN** |
@@ -38,6 +45,23 @@ Data wilayah administratif Indonesia berdasarkan Permendagri No.137 Tahun 2017 b
 | 32 | 82   | Maluku Utara              |    2 |         8 |       115 |      1180 |
 | 33 | 91   | Papua                     |    1 |        28 |       560 |      5521 |
 | 34 | 92   | Papua Barat               |    1 |        12 |       218 |      1837 |
+
+
+## Unduhan
+* [📁 CSV](https://github.com/erlange/Kodepos-Wilayah-Indonesia/tree/master/csv)
+  * [🗄 DT1.csv](https://raw.githubusercontent.com/erlange/Kodepos-Wilayah-Indonesia/master/csv/DT1.csv)
+  * [🗄 dt2.csv](https://raw.githubusercontent.com/erlange/Kodepos-Wilayah-Indonesia/master/csv/dt2.csv)
+  * [🗄 dt3.csv](https://raw.githubusercontent.com/erlange/Kodepos-Wilayah-Indonesia/master/csv/dt3.csv)
+  * [🗄 dt4.csv](https://raw.githubusercontent.com/erlange/Kodepos-Wilayah-Indonesia/master/csv/dt4.csv)
+* [📁 SQL Database](https://github.com/erlange/Kodepos-Wilayah-Indonesia/tree/master/db)
+  * [📁 MSSQL](https://github.com/erlange/Kodepos-Wilayah-Indonesia/tree/master/db/MSSQL)
+    * [🗄 datif.sql](https://raw.githubusercontent.com/erlange/Kodepos-Wilayah-Indonesia/master/db/MSSQL/datif.sql)
+    * [🗄 rekap.sql](https://raw.githubusercontent.com/erlange/Kodepos-Wilayah-Indonesia/master/db/MSSQL/rekap.sql)
+  * [📁 MariaDB/MySQL](https://github.com/erlange/Kodepos-Wilayah-Indonesia/tree/master/db/MariaDB)
+    * [🗄 datif.sql](https://raw.githubusercontent.com/erlange/Kodepos-Wilayah-Indonesia/master/db/MariaDB/datif.sql)
+* [📁 JSON](https://github.com/erlange/Kodepos-Wilayah-Indonesia/tree/master/json)
+    * [🗄 kodepos.simple.json](https://raw.githubusercontent.com/erlange/Kodepos-Wilayah-Indonesia/master/json/kodepos.simple.json)
+    * [🗄 kodepos.extended.json](https://raw.githubusercontent.com/erlange/Kodepos-Wilayah-Indonesia/master/json/kodepos.extended.json)
 
 
 ## Referensi
