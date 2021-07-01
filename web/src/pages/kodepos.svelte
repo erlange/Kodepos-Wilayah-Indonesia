@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { fade, fly, slide, scale} from 'svelte/transition';
+  import Detail from './detail.svelte'
   import SearchBox from './search.svelte'
   import Pager from './pager.svelte'
   import {getData} from './util.svelte';
@@ -41,7 +41,8 @@
 
   const setFilter = (event: Event) => {
     event.preventDefault();
-    gotoPage(event, 0);
+    currentPage = 0;
+    gotoPage(event, currentPage);
     page(wilayahs, searchText); 
     console.log(event);
   }
@@ -63,80 +64,44 @@
 </script>
 <div>
     <div class="row">
-      <div class="col l6 m6 s6">
+      <div class="col l5 m5 s5">
         <div class="row">
           <SearchBox bind:searchValue={searchText} on:click={setFilter}></SearchBox>
         </div>
       </div>
   
-      <div class="col l6 m6 s6">
+      <div class="col l7 m7 s7">
         <div class="right">
           <Pager value={currentPage + 1} 
           on:first={(e) => gotoPage(e, 0)}
           on:previous={(e) => gotoPage(e, currentPage - 1)}
           on:next={(e) => gotoPage(e, currentPage + 1)}
           on:last={(e) => gotoPage(e, pagedWilayahs.length - 1)}
+          on:setPage={(e) => gotoPage(e, e.detail - 1) }
           />
         </div>
       </div>
     </div>
 
     <div class="row">
+      {#if wilayahs.length > 0}
+        {#if pagedWilayahs.length > 0}
+          Halaman {currentPage + 1} dari {pagedWilayahs.length}
+        {:else}
+          Tidak ada data.
+        {/if}
+      {:else}
+        Memuat...
+      {/if}
       <div class="col l12 m12 s12" style="overflow:auto">
-        <table class="tblProp" cellpadding="0" cellspacing="0">
-          <thead>
-            <tr>
-              <th>Kode</th>
-              <th>Propinsi</th>
-              <th>Kabupaten/Kotamadya</th>
-              <th>Kecamatan</th>
-              <th>Kelurahan/Desa</th>
-              <th>Kode Pos</th>
-            </tr>
-          </thead>
-          <tbody>
-            {#each currentWilayahs as w, ix (w.id) }
-              <tr class="{(ix % 2 == 0 ? 'odd' : 'even')}"  in:scale out:fly on:click="{() => searchGmaps(w.desa + ' ' + w.keca + ' ' + w.kabu)}">
-                <td>{ w.id }</td>
-                <td>{ w.prop }</td>
-                <td>{ w.kabu }</td>
-                <td>{ w.keca }</td>
-                <td>{ w.desa }</td>
-                <td>{ w.kode }</td>
-              </tr>
-            {/each}
-          </tbody>
-        </table>
-  
+        <Detail data={currentWilayahs} />
       </div>
     </div>
 </div>
 
 <style>
-  table.tblProp {
-    text-align: left;
-    color: #fff;
-    border: none;
-    margin-left: -10px;
-  }
-  table.tblProp tr th {
-    text-align: center;
-    background-color: #002f7d ;
-    padding: .4rem 1rem .4rem 1rem;
-    cursor: default;
-  }
-  table.tblProp tr td {
-    padding: .4rem 1rem .4rem 1rem;
-    cursor: pointer;
-  }
-
-  tr.odd{
-    background-color: #1565c0 ;
-  }
-  tr.even{
-    background-color: #0d47a1 ;
-  }
-  tr:hover{
-    background-color: #bc2d00  ;
+  div.row {
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 </style>

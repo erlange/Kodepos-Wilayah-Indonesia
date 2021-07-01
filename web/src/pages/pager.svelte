@@ -21,21 +21,33 @@ const onLast = (event: Event) => {
   dispatch('last');
 }
 
+const onSetPage = (event: Event, newValue: string) => {
+  event.preventDefault()
+  if ( !isNaN( Number(newValue)) ) {
+    newPage = Number(newValue);
+    dispatch('setPage', newPage);
+  }
+}
 
 export let value: number;
-
+let textInput: HTMLInputElement;
+export let newPage: number;
 </script>
 
-<form action="post">
+<form action="post" on:submit="{(e) => onSetPage(e, textInput.value.trim())}">
   <span class="b" on:click="{onFirst}"><i class="fas fa-angle-double-left "></i></span>
   <span on:click="{onPrev}"><i class="fas fa-angle-left"></i></span>
   
-  <input type="text" disabled class="browser-default pageText" value="{value}"/>
+  <input bind:this={textInput} type="text" class="browser-default pageText" value="{value}"/>
   <span on:click="{onNext}"><i class="fas fa-angle-right"></i></span>
   <span on:click="{onLast}"><i class="fas fa-angle-double-right"></i></span>
+  <input type="submit"  />
 </form>
 
 <style>
+  input[type=submit] {
+    display: none;
+  }
   span {
     display: inline-block;
     width: 30px;
@@ -53,6 +65,7 @@ export let value: number;
   }
 
   .pageText {
+    text-align: right;
     width: 50px;
   }
 </style>

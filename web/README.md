@@ -43,9 +43,11 @@ npm install
 npm run dev
 ```
 
-Navigate to [localhost:5432](http://localhost:5432). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
+Use your browser, go to [http://localhost:5432/Kodepos-Wilayah-Indonesia](http://localhost:5432/Kodepos-Wilayah-Indonesia). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
 
-<!-- Change the port by editing [this line in package.json](https://github.com/erlange/100-words/blob/main/package.json#L8) file. -->
+Change [this line in app.svelte](https://github.com/erlange/Kodepos-Wilayah-Indonesia/blob/master/web/src/App.svelte#L14) to configure the base-href other than `/Kodepos-Wilayah-Indonesia`
+
+Change the port by editing [this line in package.json](https://github.com/erlange/Kodepos-Wilayah-Indonesia/blob/master/web/package.json#L8) file.
 
 By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
 
