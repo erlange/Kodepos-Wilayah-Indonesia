@@ -4,8 +4,8 @@
 
   export const getData = async () => {
 
-    const url = 'http://localhost:8028/kodepos/kodepos.extended.json';
-    // const url = 'https://raw.githubusercontent.com/erlange/Kodepos-Wilayah-Indonesia/master/json/kodepos.extended.json';
+    // const url = 'http://localhost:8028/kodepos/kodepos.extended.json';
+    const url = 'https://raw.githubusercontent.com/erlange/Kodepos-Wilayah-Indonesia/master/json/kodepos.extended.json';
 
     let data = [];
 
