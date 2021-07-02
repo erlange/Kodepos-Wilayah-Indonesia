@@ -11,10 +11,10 @@
   let rowPerPage = 20;
   let currentPage = 0;
   let searchText = '';
-  let searchBox;
+  let filteredRows: Wilayah[]; 
 
   const page = (rows: Wilayah[], filter = '') => {
-    let filteredRows = rows; 
+    filteredRows = rows;
     if (filter.length > 0) {
         filteredRows = rows.filter(f => f.prop.toLowerCase().includes(filter.toLowerCase().trim())
         || f.kabu.toLowerCase().includes(filter.toLowerCase().trim())
@@ -44,7 +44,6 @@
     currentPage = 0;
     gotoPage(event, currentPage);
     page(wilayahs, searchText); 
-    console.log(event);
   }
   
   onMount(() => {
@@ -86,7 +85,7 @@
     <div class="row">
       {#if wilayahs.length > 0}
         {#if pagedWilayahs.length > 0}
-          Halaman {currentPage + 1} dari {pagedWilayahs.length}
+          Halaman {currentPage + 1} dari {pagedWilayahs.length} ({filteredRows.length} wilayah).
         {:else}
           Tidak ada data.
         {/if}
@@ -97,6 +96,25 @@
         <Detail data={currentWilayahs} />
       </div>
     </div>
+
+    <div class="row">
+      <div class="col l5 m5 s5">
+      </div>
+  
+      <div class="col l7 m7 s7">
+        <div class="right">
+          <Pager value={currentPage + 1} 
+          on:first={(e) => gotoPage(e, 0)}
+          on:previous={(e) => gotoPage(e, currentPage - 1)}
+          on:next={(e) => gotoPage(e, currentPage + 1)}
+          on:last={(e) => gotoPage(e, pagedWilayahs.length - 1)}
+          on:setPage={(e) => gotoPage(e, e.detail - 1) } 
+          />
+        </div>
+      </div>
+    </div>
+
+    
 </div>
 
 <style>

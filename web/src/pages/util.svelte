@@ -4,8 +4,8 @@
 
   export const getData = async () => {
 
-    // const url = 'http://localhost:8028/kodepos/kodepos.extended.json';
-    const url = 'https://raw.githubusercontent.com/erlange/Kodepos-Wilayah-Indonesia/master/json/kodepos.extended.json';
+    const url = 'http://localhost:8028/kodepos/kodepos.extended.json';
+    // const url = 'https://raw.githubusercontent.com/erlange/Kodepos-Wilayah-Indonesia/master/json/kodepos.extended.json';
 
     let data = [];
 
@@ -25,7 +25,8 @@
                   wilayahs.push({
                     id: v4['ID'],
                     prop: k1,
-                    kabu: v2['Type'] === 'Kota' ? 'Kota ' + k2 : 'Kabupaten ' + k2,
+                    kabu: v2['Type'] === 'Kota' ? ('Kota ' + k2).replace(', Kota','') : ('Kabupaten ' + k2).replace(', Kabupaten', ''),
+                    // kabu: k2,
                     keca: k3,
                     desa: k4,
                     kode: v4['Kode Pos']

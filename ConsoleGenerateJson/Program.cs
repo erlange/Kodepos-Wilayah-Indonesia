@@ -100,8 +100,8 @@ namespace Kodepos.GenerateJson
                 JObject oKabu = o1[l.Nm]["Kabupaten/Kota"] as JObject;
                 foreach (var l2 in kabu)
                 {
-                    //string sKabu = l2.Nm + ", " + l2.Type;
-                    string sKabu = l2.Nm;
+                    string sKabu = l2.Nm + ", " + l2.Type;
+                    //string sKabu = l2.Nm;
                     oKabu[sKabu] = JObject.Parse(@"{}");
                     oKabu[sKabu]["ID"] = l2.Id;
                     oKabu[sKabu]["Type"] = l2.Type;

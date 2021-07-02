@@ -31,7 +31,7 @@ const onSetPage = (event: Event, newValue: string) => {
 
 export let value: number;
 let textInput: HTMLInputElement;
-export let newPage: number;
+let newPage: number;
 </script>
 
 <form action="post" on:submit="{(e) => onSetPage(e, textInput.value.trim())}">
