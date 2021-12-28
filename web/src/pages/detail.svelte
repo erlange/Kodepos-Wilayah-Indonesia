@@ -1,9 +1,16 @@
 <script lang="ts">
   import { fade, fly, slide, scale} from 'svelte/transition';
   import type {Wilayah} from './model.svelte';
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
 
   const searchGmaps = (input: string)  => {
     window.open('https://google.com/maps/search/' + input);
+  }
+
+  const rowClick = (input: string) => {
+    dispatch('rowClick', input);
   }
 
   export let data = [] as Wilayah[];
@@ -23,7 +30,8 @@
   </thead>
   <tbody>
     {#each data as w, ix (w.id) }
-      <tr class="{(ix % 2 == 0 ? 'odd' : 'even')}" transition:scale on:click="{() => searchGmaps(w.desa + ' ' + w.keca + ' ' + w.kabu)}">
+      <!-- <tr class="{(ix % 2 == 0 ? 'odd' : 'even')}" transition:scale on:click="{() => searchGmaps(w.desa + ' ' + w.keca + ' ' + w.kabu)}"> -->
+      <tr class="{(ix % 2 == 0 ? 'odd' : 'even')}" transition:scale on:click="{() => rowClick(w.desa + ' ' + w.keca + ' ' + w.kabu)}">
         <td>{ w.id }</td>
         <td>{ w.prop }</td>
         <td>{ w.kabu }</td>

@@ -12,6 +12,7 @@
   let currentPage = 0;
   let searchText = '';
   let filteredRows: Wilayah[]; 
+  let clickedWilayah = 'Indonesia';
 
   const page = (rows: Wilayah[], filter = '') => {
     filteredRows = rows;
@@ -62,6 +63,12 @@
   
 </script>
 <div>
+  <div class="row">
+    <div class="col l12 m12 s12">
+      <iframe id="iframe1" title="maps" width="100%" height="320" src="https://maps.google.com/maps?q={clickedWilayah}&output=embed"></iframe>
+    </div>
+  </div>
+
     <div class="row">
       <div class="col l5 m5 s5">
         <div class="row">
@@ -93,14 +100,13 @@
         Memuat...
       {/if}
       <div class="col l12 m12 s12" style="overflow:auto">
-        <Detail data={currentWilayahs} />
+        <Detail data={currentWilayahs} on:rowClick={(e) => clickedWilayah=e.detail} />
       </div>
     </div>
 
     <div class="row">
       <div class="col l5 m5 s5">
       </div>
-  
       <div class="col l7 m7 s7">
         <div class="right">
           <Pager value={currentPage + 1} 

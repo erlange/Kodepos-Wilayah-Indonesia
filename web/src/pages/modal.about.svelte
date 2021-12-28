@@ -27,7 +27,7 @@
       </div>
       <div class="row">
         <div class="modalbody">
-          <hr />Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore non iusto reiciendis distinctio dolorum dignissimos necessitatibus. Cumque exercitationem asperiores saepe molestias distinctio enim in deserunt esse vero! Id, ipsa dolorum.
+          <hr />Wilayah administratif Indonesia dengan kode pos berdasarkan Permendagri No.137 Tahun 2017.
               Source code on <a href="https://github.com/erlange/Kodepos-Wilayah-Indonesia">Github</a>
             <hr />
             <p>
